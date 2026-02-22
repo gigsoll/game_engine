@@ -15,7 +15,7 @@ def main():
     pygame.init()
     physics = PhysicsSystem()
     bodies = []
-    for _ in range(1200):
+    for _ in range(120):
         position = pygame.Vector2(
             0 + randint(0, SCREEN_WIDTH), 300 + randint(0, SCREEN_HEIGHT) / 2
         )
@@ -23,7 +23,7 @@ def main():
             position.copy(),
             pygame.Vector2(0, 100),
             10,
-            Circle(position.copy(), 10, (0, 255, 0)),
+            Rect(pygame.Vector2(60, 40), position.copy(), 40),
         )
 
         bodies.append(body)

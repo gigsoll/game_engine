@@ -3,14 +3,18 @@ from math import cos, sin
 import math
 
 
-def rotate_point(vertice: Vector2, angle_degree: float, point: Vector2):
+def rotate_point(point: Vector2, angle_degree: float, origin: Vector2):
     radians: float = math.radians(angle_degree)
+    s = sin(radians)
+    c = cos(radians)
 
-    rotated: Vector2 = Vector2(0, 0)
-    direction: Vector2 = vertice - point
+    point.x -= origin.x
+    point.y -= origin.y
 
-    rotated.x = direction.x * cos(radians) - direction.y * sin(radians)
-    rotated.y = direction.x * sin(radians) - direction.y * cos(radians)
+    x_rot = point.x * c - point.y * s
+    y_rot = point.x * s + point.y * c
 
-    rotated += point
-    return rotated
+    point.x = x_rot + origin.x
+    point.y = y_rot + origin.y
+
+    return point
