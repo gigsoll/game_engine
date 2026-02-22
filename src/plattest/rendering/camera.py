@@ -18,6 +18,12 @@ class Camera:
         scree_coords.y = SCREEN_HEIGHT - scree_coords.y
         return scree_coords
 
+    def transform_array(self, world_array: list[Vector2]) -> list[Vector2]:
+        result: list[Vector2] = [
+            self.calc_screen_coords(point) for point in world_array
+        ]
+        return result
+
     def create_screen(self) -> Surface:
         screen: Surface = pygame.display.set_mode((self.width, self.height))
         screen.fill((255, 0, 0))
