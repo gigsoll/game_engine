@@ -4,6 +4,7 @@ from pygame import Vector2
 import pygame
 
 from plattest.physics import math_help
+from plattest.physics.rigid_body.line import Line
 from plattest.rendering.camera import Camera
 
 
@@ -45,6 +46,16 @@ class Shape(ABC):
     @color.setter
     def color(self, color: tuple[int, int, int]) -> None:
         self._color = color
+
+    @property
+    def edges(self) -> list[Line]:
+        verts: list[Vector2] = self._vertecies
+        return [Line(verts[i], verts[(i + 1) % len(verts)]) for i in range(len(verts))]
+
+    @property
+    def normals(self) -> list[Vector2]:
+        edges: list[Line] = self.edges
+        return [math_help.calc_normal(line) for line in edges]
 
     def draw(self, camera: Camera) -> None:
         camera_verts = camera.transform_array(self._vertecies)

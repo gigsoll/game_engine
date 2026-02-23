@@ -3,7 +3,7 @@ from plattest.physics.forces.force import Force
 from plattest.physics.forces.force_registry import ForceRegistry
 from plattest.physics.forces.force_register import ForceRegister
 from plattest.physics.forces.gravity import Gravity
-from plattest.physics.primitives.rigidbody import RigidBody
+from plattest.physics.rigid_body.rigidbody import RigidBody
 
 
 class PhysicsSystem:

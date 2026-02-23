@@ -1,7 +1,7 @@
 from plattest.physics.forces.force import Force
 from pygame import Vector2
 
-from plattest.physics.primitives.rigidbody import RigidBody
+from plattest.physics.rigid_body.rigidbody import RigidBody
 
 
 class Gravity(Force):

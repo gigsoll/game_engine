@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from plattest.physics.primitives.rigidbody import RigidBody
+from plattest.physics.rigid_body.rigidbody import RigidBody
 
 
 class Force(ABC):

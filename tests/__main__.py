@@ -1,4 +1,4 @@
 import unittest
+from .rect_and_circle import RectAndCircle
 
-if __name__ == "__main__":
-    unittest.main()
+unittest.main()
