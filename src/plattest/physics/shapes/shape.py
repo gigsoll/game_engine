@@ -39,9 +39,8 @@ class Shape(ABC):
     @centroid.setter
     def centroid(self, new_pos: Vector2) -> None:
         diff = new_pos - self._centroid
-        print(diff)
         self.vertecies = [vert + diff for vert in self._vertecies]
-        self._centroid = new_pos.copy()
+        self._centroid = new_pos
 
     @color.setter
     def color(self, color: tuple[int, int, int]) -> None:

@@ -8,7 +8,7 @@ class RigidBody:
         self._velocity = vel
         self._linear_velocity = Vector2(0, 0)
         self._angular_velocity = Vector2(0, 0)
-        self.angle: float = 0.0
+        self._angle: float = 0.0
         self._shape: Shape = shape
 
     @property
@@ -17,12 +17,11 @@ class RigidBody:
 
     @property
     def position(self) -> Vector2:
-        return self._shape.centroid
+        return self.shape.centroid
 
     @position.setter
     def position(self, new_pos: Vector2) -> None:
-        # self.shape.centroid = new_pos.copy()
-        ...
+        self.shape.centroid = new_pos
 
     @property
     def velocity(self) -> Vector2:
