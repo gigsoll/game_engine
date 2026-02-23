@@ -1,8 +1,8 @@
 from plattest.physics.forces.force import Force
-from plattest.physics.primitives.particle import Particle
+from plattest.physics.primitives.rigidbody import RigidBody
 
 
 class ForceRegister:
-    def __init__(self, particle: Particle, force: Force) -> None:
-        self.particle: Particle = particle
+    def __init__(self, body: RigidBody, force: Force) -> None:
+        self.body: RigidBody = body
         self.force: Force = force

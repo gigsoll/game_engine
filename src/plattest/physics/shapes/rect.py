@@ -15,3 +15,9 @@ class Rect(Shape):
         self._centroid: Vector2 = position
         self._color = (0, 255, 0)
         self.rotate(rotation)
+
+    @classmethod
+    def from_corners(cls, min: Vector2, max: Vector2) -> Rect:
+        size: Vector2 = max - min
+        position: Vector2 = min + size / 2
+        return cls(size, position, 0)

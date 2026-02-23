@@ -22,4 +22,4 @@ class ForceRegistry:
 
     def update_forces(self, dt: float) -> None:
         for fr in self._force_registers:
-            fr.force.apply_force(fr.particle, dt)
+            fr.force.apply_force(fr.body, dt)

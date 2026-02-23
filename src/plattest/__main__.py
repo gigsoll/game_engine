@@ -16,18 +16,28 @@ def main():
     physics = PhysicsSystem()
     bodies = []
     for _ in range(120):
-        position = pygame.Vector2(
-            0 + randint(0, SCREEN_WIDTH), 300 + randint(0, SCREEN_HEIGHT) / 2
-        )
         body = RigidBody(
-            position.copy(),
             pygame.Vector2(0, 100),
             10,
-            Rect(pygame.Vector2(60, 40), position.copy(), 40),
+            Rect(
+                pygame.Vector2(10, 10),
+                pygame.Vector2(
+                    0 + randint(0, SCREEN_WIDTH), 300 + randint(0, SCREEN_HEIGHT) / 2
+                ),
+                40,
+            ),
         )
 
         bodies.append(body)
         physics.add_force(body, Gravity())
+        bodies.append(
+            RigidBody(
+                pygame.Vector2(0, 0),
+                0,
+                Rect.from_corners(pygame.Vector2(0, 0), pygame.Vector2(100, 100)),
+            )
+        )
+
     camera = Camera(0, 0)
     screen = camera.create_screen()
     cur_time = time()

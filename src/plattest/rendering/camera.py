@@ -1,7 +1,6 @@
 from pygame import Surface, Vector2
 import pygame
 from plattest.config import SCREEN_WIDTH, SCREEN_HEIGHT
-from plattest.physics.primitives.particle import Particle
 
 
 class Camera:
@@ -31,10 +30,6 @@ class Camera:
 
     def draw_backgroun(self) -> None:
         self.screen.fill((239, 241, 245))
-
-    def draw_particle(self, particle: Particle) -> None:
-        pos: Vector2 = self.calc_screen_coords(particle.position)
-        pygame.draw.circle(self.screen, (0, 255, 0), pos, 20, 2)
 
     def flip(self):
         pygame.display.flip()
