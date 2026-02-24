@@ -21,8 +21,15 @@ class PhysicsSystem:
         self._force_registry.append(ForceRegister(body, self._gravity))
 
     def update(self, dt: float) -> None:
+        # update forces
         self._force_registry.update_forces(dt)
+
+        # recalculate position
         for el in self._elements:
             print(f"calculated dp: {el.velocity * dt}")
             new_pos: Vector2 = el.position + el.velocity * dt
             el.position = new_pos
+
+        # detect collisions
+
+        # resolve collisions

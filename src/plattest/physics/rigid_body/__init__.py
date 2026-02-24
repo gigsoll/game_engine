@@ -1,1 +1,0 @@
-from .rigidbody import RigidBody

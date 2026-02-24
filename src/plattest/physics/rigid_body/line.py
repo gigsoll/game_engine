@@ -6,6 +6,12 @@ class Line:
         self._start: Vector2 = start
         self._end: Vector2 = end
 
+    def __repr__(self) -> str:
+        return f"<Line({self._start}{self._end})>"
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
     @property
     def start(self) -> Vector2:
         return self._start

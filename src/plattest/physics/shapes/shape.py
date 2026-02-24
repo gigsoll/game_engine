@@ -21,6 +21,12 @@ class Shape(ABC):
         self._color: tuple[int, int, int] = color
         self._centroid: Vector2 = centroid
 
+    def __str__(self) -> str:
+        return f"<{type(self).__name__}(vertecies={self._vertecies}, centroid={self._centroid})>"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
     @property
     def vertecies(self) -> list[Vector2]:
         return self._vertecies
