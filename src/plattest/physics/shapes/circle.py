@@ -13,7 +13,14 @@ class Circle(Shape):
         self._centroid: Vector2 = centroid
         self._radius: float = radius
         self._color = color
-        self._vertecies = [Vector2(self._centroid.x + self._radius, self._centroid.y)]
+
+        # circle should have at least two points to work wit SAT
+        # initally they are set as points from center to edge along
+        # x axis, but may be changed
+        self._vertecies = [
+            Vector2(self._centroid.x + self._radius, self._centroid.y),
+            Vector2(self._centroid.x - self._radius, self._centroid.y),
+        ]
 
     @property
     def radius(self):
@@ -21,7 +28,14 @@ class Circle(Shape):
 
     @property
     def edges(self) -> list[Line]:
-        return [Line(self._centroid, self.vertecies[0])]
+        return [
+            Line(self._centroid, self.vertecies[0]),
+            Line(self._centroid, self.vertecies[1]),
+        ]
+
+    def apply_normal_verts(self, normal) -> None:
+        self._vertecies[0] = self._centroid + (normal * self._radius)
+        self._vertecies[1] = self._centroid - (normal * self._radius)
 
     def draw(self, camera: Camera) -> None:
         pygame.draw.line(
