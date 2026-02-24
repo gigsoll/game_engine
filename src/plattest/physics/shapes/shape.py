@@ -68,7 +68,7 @@ class Shape(ABC):
         pygame.draw.circle(
             camera.screen, (100, 100, 100), camera.calc_screen_coords(self._centroid), 2
         )
-        pygame.draw.polygon(camera.screen, self._color, camera_verts, 2)
+        pygame.draw.polygon(camera.screen, self.color, camera_verts, 2)
 
     def rotate(self, angle: float) -> None:
         self._vertecies = [

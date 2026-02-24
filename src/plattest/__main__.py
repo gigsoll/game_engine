@@ -14,16 +14,16 @@ from plattest.rendering.camera import Camera
 def main():
     pygame.init()
     physics = PhysicsSystem()
-    for _ in range(120):
+    for _ in range(20):
         body = RigidBody(
-            pygame.Vector2(0, 100),
+            pygame.Vector2(randint(-200, 200), 0),
             10,
             Circle(
                 pygame.Vector2(
                     60 + randint(0, SCREEN_WIDTH - 120),
                     300 + randint(0, SCREEN_HEIGHT) / 2,
                 ),
-                10,
+                20,
                 (0, 255, 0),
             ),
         )

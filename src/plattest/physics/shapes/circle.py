@@ -44,6 +44,12 @@ class Circle(Shape):
             camera.calc_screen_coords(self._centroid),
             camera.calc_screen_coords(self.vertecies[0]),
         )
+        pygame.draw.line(
+            camera.screen,
+            (100, 100, 100),
+            camera.calc_screen_coords(self._centroid),
+            camera.calc_screen_coords(self.vertecies[1]),
+        )
         pygame.draw.circle(
             camera.screen,
             self._color,
